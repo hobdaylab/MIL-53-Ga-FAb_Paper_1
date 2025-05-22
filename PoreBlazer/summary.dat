@@ -1,0 +1,31 @@
+ struc_b_ga_opt.xyz
+V_A^3      963.557
+M _g/mol      802.892
+RHO_g/cm^3        1.384
+PLD_A         4.27
+LCD_A         5.03
+ D            1
+ Total               
+S_AC_A^2        62.52
+S_AC_m^2/cm^3       648.86
+S_AC_m^2/g       468.95
+ Total               
+V_He_A^3      394.355
+V_He_cm^3/g        0.296
+V_G_A^3      515.852
+V_G cm^3/g:        0.387
+V_PO A^3:      384.723
+V_PO cm^3/g:        0.289
+FV_PO:      0.39927
+ Network-accessible  
+S_AC_A^2        56.19
+S_AC_m^2/cm^3       583.16
+S_AC_m^2/g       421.46
+ Network-accessible  
+V_He_A^3      394.355
+V_He_cm^3/g        0.296
+V_G_A^3      515.834
+V_G cm^3/g:        0.387
+V_PO A^3:      388.217
+V_PO cm^3/g:        0.291
+FV_PO:      0.40290
