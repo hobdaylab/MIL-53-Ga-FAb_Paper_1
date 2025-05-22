@@ -1,0 +1,180 @@
+&EXT_RESTART
+  RESTART_FILE_NAME dehy_nptf-1.restart
+  RESTART_DEFAULT .TRUE.
+  RESTART_AVERAGES
+  RESTART_BAROSTAT
+  RESTART_BAROSTAT_THERMOSTAT
+  RESTART_CELL
+  RESTART_POS
+  RESTART_THERMOSTAT
+  RESTART_VEL
+&END EXT_RESTART
+
+&GLOBAL
+  PROJECT dehy_nptf
+  RUN_TYPE MD             #Calculation Type : MD (molecular dynamics), GEO_OPT (Geometry Optimization), Energy (Energy Calculation)
+  PRINT_LEVEL LOW
+  SEED 5
+&END GLOBAL
+
+&MOTION
+  &MD
+    ENSEMBLE NPT_F          #The ensemble for MD propagation, NVE (microcanonical), NVT (canonical), NPT_I (NPT with isotropic cell) 
+    STEPS 10000             #The number of MD steps to perform
+    TIMESTEP 0.55           #The length of an integration step (fs)
+    TEMPERATURE 298.0      #The temperature in K used to initialize the velocities with init and pos restart, and in the NPT/NVT simulations
+
+  &THERMOSTAT
+    TYPE CSVR                   # \cite{10.1063/1.2408420} Canonical Sampling through velocity rescaling
+    &CSVR
+      TIMECON [fs] 100           # time constants: We use 1000 fs to study temperature-induced processes
+    &END CSVR
+  &END THERMOSTAT
+  
+  &BAROSTAT
+    PRESSURE 1000
+    TIMECON 100
+  &END BAROSTAT
+  
+  &END MD
+  &PRINT
+   &TRAJECTORY
+
+    &EACH
+     MD 1
+    &END EACH
+    
+    FORMAT DCD
+
+   &END TRAJECTORY
+   &VELOCITIES ON
+   &END VELOCITIES
+    &FORCES ON
+      &EACH 
+        MD 1
+      &END EACH
+    &END FORCES 
+   &RESTART
+    &EACH
+     MD 1
+    &END EACH
+   &END RESTART
+   &RESTART_HISTORY OFF
+   &END RESTART_HISTORY
+   &CELL ON
+   &END CELL
+  &END PRINT
+&END MOTION
+
+&FORCE_EVAL                         # Parameters associated with the evaluation of forces on atoms.
+  STRESS_TENSOR ANALYTICAL
+&DFT
+    BASIS_SET_FILE_NAME /work/e89/e89/chong/ga_fum/files_cp2k/BASIS_MOLOPT
+    POTENTIAL_FILE_NAME /work/e89/e89/chong/ga_fum/files_cp2k/POTENTIALS
+&MGRID                              # Parameters needed to map gaussians.
+  CUTOFF 750
+  REL_CUTOFF 50
+  NGRIDS 4
+&END MGRID
+
+&QS
+  METHOD GAPW                      # Gaussian Augmented Plane Wave method: electronic density is expanded in plane waves.
+  EPS_DEFAULT 1.0E-13
+  EXTRAPOLATION_ORDER 4
+&END QS
+
+&PRINT
+  &MULLIKEN
+    FILENAME =trial-1.milliken
+    &EACH
+      MD 1
+    &END EACH
+  &END MULLIKEN
+&END PRINT
+
+&SCF
+  SCF_GUESS RESTART
+  EPS_SCF 1.0E-7 ! Error allowed.
+  MAX_SCF 100                      # Max numbers of iterations.
+  
+  &OT ON
+    MINIMIZER DIIS
+#    NDIIS 7     
+    PRECONDITIONER FULL_SINGLE_INVERSE            # Faster than default (only for well-behaving systems).
+  &END OT
+
+  &OUTER_SCF
+     EPS_SCF 1.0E-6 ! Error allowed.
+    MAX_SCF 20 ! Max numbers of iterations.
+  &END OUTER_SCF
+&END SCF
+
+#WFN_RESTART_FILE_NAME go.wfn 
+WFN_RESTART_FILE_NAME dehy_nptf-RESTART.wfn 
+
+&XC
+  &XC_FUNCTIONAL PBE ! GGA-level functional.
+  &END XC_FUNCTIONAL
+
+  &vdW_POTENTIAL
+      DISPERSION_FUNCTIONAL PAIR_POTENTIAL    # dispersion corrections "D3" as proposed by Grimme\cite{10.1002/jcc.20495}
+    &PAIR_POTENTIAL
+      TYPE DFTD3
+      LONG_RANGE_CORRECTION .TRUE.
+      PARAMETER_FILE_NAME /work/e89/e89/chong/ga_fum/files_cp2k/dftd3.dat
+      R_CUTOFF [angstrom] 15.0
+      REFERENCE_FUNCTIONAL PBE
+    &END PAIR_POTENTIAL
+  &END vdW_POTENTIAL
+&END XC
+
+&END DFT
+
+&SUBSYS
+  &CELL
+
+    ABC 6.67 10.41 13.813
+    ALPHA_BETA_GAMMA 90.00 89.51 90.01
+    PERIODIC XYZ
+
+    &CELL_REF
+      ABC 7.5 11.2 15.1
+      ALPHA_BETA_GAMMA 90.01 94.86 90.029
+      MULTIPLE_UNIT_CELL 1 1 1
+    &END CELL_REF
+
+  &END CELL
+ 
+  &TOPOLOGY
+    COORD_FILE_FORMAT CIF
+    COORD_FILE_NAME ga.cif
+  &END TOPOLOGY
+
+    &KIND Ga
+      ELEMENT   Ga
+      BASIS_SET DZVP-MOLOPT-SR-GTH-q13
+      POTENTIAL GTH-PBE-q13
+    &END KIND
+
+    &KIND C
+      ELEMENT C
+      BASIS_SET DZVP-MOLOPT-GTH
+      POTENTIAL GTH-PBE-q4
+    &END KIND
+
+    &KIND H
+      ELEMENT H
+      BASIS_SET DZVP-MOLOPT-GTH
+      POTENTIAL GTH-PBE-q1
+    &END KIND
+
+    &KIND O
+      ELEMENT O
+      BASIS_SET DZVP-MOLOPT-GTH
+      POTENTIAL GTH-PBE-q6
+    &END KIND
+
+  
+&END SUBSYS
+
+&END FORCE_EVAL
