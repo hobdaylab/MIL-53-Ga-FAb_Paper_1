@@ -55,34 +55,10 @@ DensityAveragingTypeVTK FullBox
 ComputeDensityHistogram yes
 
 
-#Component 0 MoleculeName 		water
-#            MoleculeDefinition          TraPPE
-#            TranslationProbability 	0.5
-#            ReinsertionProbability 	0.5
-#            SwapProbability 		1.0
-#            CreateNumberOfMolecules 	0
-
-
 Component 0 MoleculeName 		water
             MoleculeDefinition 		TIP5P
             MolFraction                 0.25
             TranslationProbability      0.5
-#            RegrowProbability           0.5
-#            IdentityChangeProbability   1.0
-#                NumberOfIdentityChanges 2
-#                IdentityChangesList     0 1
+
             SwapProbability             1.0
             CreateNumberOfMolecules     0
-#
-
-#Component 0 MoleculeName CO2
-#            MoleculeDefinition TraPPE
-#            MolFraction                  0.25
-#            TranslationProbability       0.5
-#            RegrowProbability            0.5
-#            IdentityChangeProbability    1.0
-#                NumberOfIdentityChanges  2
-#                IdentityChangesList      0 1
-#            SwapProbability              1.0
-#            CreateNumberOfMolecules      0
-#
