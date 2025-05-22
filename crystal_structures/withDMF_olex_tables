@@ -1,0 +1,158 @@
+mo_WL03_040E_4_298K_0m
+
+Table 1 Crystal data and structure refinement for mo_WL03_040E_4_298K_0m.
+Identification code	mo_WL03_040E_4_298K_0m
+Empirical formula	C7H10InNO6
+Formula weight	318.98
+Temperature/K	298
+Crystal system	orthorhombic
+Space group	Pnma
+a/Å	7.307(2)
+b/Å	10.626(3)
+c/Å	13.915(5)
+α/°	90
+β/°	90
+γ/°	90
+Volume/Å3	1080.4(6)
+Z	4
+ρcalcg/cm3	1.961
+μ/mm‑1	2.196
+F(000)	624.0
+Crystal size/mm3	0.2 × 0.028 × 0.028
+Radiation	MoKα (λ = 0.71073)
+2Θ range for data collection/°	4.824 to 52.89
+Index ranges	-8 ≤ h ≤ 9, -12 ≤ k ≤ 13, -13 ≤ l ≤ 17
+Reflections collected	5946
+Independent reflections	1165 [Rint = 0.0511, Rsigma = 0.0420]
+Data/restraints/parameters	1165/74/93
+Goodness-of-fit on F2	1.111
+Final R indexes [I>=2σ (I)]	R1 = 0.0362, wR2 = 0.0866
+Final R indexes [all data]	R1 = 0.0376, wR2 = 0.0876
+Largest diff. peak/hole / e Å-3	1.17/-0.77
+
+ 
+
+Table 2 Fractional Atomic Coordinates (×104) and Equivalent Isotropic Displacement Parameters (Å2×103) for mo_WL03_040E_4_298K_0m. Ueq is defined as 1/3 of the trace of the orthogonalised UIJ tensor.
+Atom	x	y	z	U(eq)
+C1	5858(6)	5795(5)	1162(4)	36.1(11)
+In1	3387.0(5)	7500	2543.9(2)	22.50(17)
+O1	4367(4)	6096(4)	1537(3)	48.6(10)
+C2	5759(7)	5026(6)	267(4)	46.6(13)
+O2	7410(4)	6078(4)	1454(3)	45.7(9)
+O3	5925(5)	7500	3206(3)	31.9(10)
+N1	5955(11)	2500	3622(6)	68(2)
+C3	5030(30)	3070(20)	4297(12)	102(6)
+O4	3973(12)	2500	4822(6)	131(5)
+C5	5860(30)	1150(20)	3490(20)	132(8)
+C7	7200(40)	3210(30)	3031(19)	157(10)
+ 
+
+Table 3 Anisotropic Displacement Parameters (Å2×103) for mo_WL03_040E_4_298K_0m. The Anisotropic displacement factor exponent takes the form: -2π2[h2a*2U11+2hka*b*U12+…].
+Atom	U11	U22	U33	U23	U13	U12
+C1	27(2)	43(3)	37(2)	-16(2)	-4.2(18)	3(2)
+In1	11.7(2)	37.0(3)	18.7(2)	0	1.42(13)	0
+O1	24.7(15)	71(3)	50(2)	-35(2)	-1.9(15)	1.9(17)
+C2	34(2)	58(3)	48(3)	-25(3)	-2(2)	4(2)
+O2	21.6(14)	67(2)	48.2(19)	-32.8(18)	-3.0(14)	-3.0(16)
+O3	12.8(19)	64(3)	19(2)	0	-0.6(14)	0
+N1	56(5)	88(6)	60(5)	0	14(4)	0
+C3	94(11)	142(15)	68(9)	-42(9)	9(9)	-24(10)
+O4	82(6)	266(15)	46(4)	0	16(4)	0
+C5	116(17)	92(14)	190(20)	-4(16)	-1(16)	15(13)
+C7	145(19)	180(20)	142(19)	6(18)	37(17)	-74(18)
+ 
+
+Table 4 Bond Lengths for mo_WL03_040E_4_298K_0m.
+Atom	Atom	Length/Å	 	Atom	Atom	Length/Å
+C1	O1	1.250(5)	 	In1	O33	2.080(4)
+C1	C2	1.491(7)	 	In1	O3	2.071(4)
+C1	O2	1.241(5)	 	C2	C24	1.337(10)
+In1	O11	2.168(3)	 	N1	C3	1.305(17)
+In1	O1	2.168(3)	 	N1	C5	1.45(2)
+In1	O22	2.177(3)	 	N1	C7	1.44(2)
+In1	O23	2.177(3)	 	C3	O4	1.226(19)
+1+X,3/2-Y,+Z; 2-1/2+X,3/2-Y,1/2-Z; 3-1/2+X,+Y,1/2-Z; 41-X,1-Y,-Z
+
+ 
+
+Table 5 Bond Angles for mo_WL03_040E_4_298K_0m.
+Atom	Atom	Atom	Angle/˚	 	Atom	Atom	Atom	Angle/˚
+O1	C1	C2	116.5(4)	 	O3	In1	O22	90.49(12)
+O2	C1	O1	126.7(4)	 	O3	In1	O23	90.49(12)
+O2	C1	C2	116.8(4)	 	O33	In1	O23	92.17(12)
+O1	In1	O11	86.9(2)	 	O33	In1	O22	92.17(12)
+O1	In1	O22	179.51(16)	 	O3	In1	O33	176.30(10)
+O1	In1	O23	92.56(17)	 	C1	O1	In1	137.2(3)
+O11	In1	O23	179.51(16)	 	C24	C2	C1	121.9(6)
+O11	In1	O22	92.56(17)	 	C1	O2	In15	132.6(3)
+O22	In1	O23	87.9(2)	 	In1	O3	In15	123.4(2)
+O3	In1	O11	89.52(12)	 	C3	N1	C5	121.9(18)
+O33	In1	O1	87.80(12)	 	C3	N1	C7	119.7(15)
+O33	In1	O11	87.79(12)	 	C7	N1	C5	118(2)
+O3	In1	O1	89.52(12)	 	O4	C3	N1	121.7(17)
+1+X,3/2-Y,+Z; 2-1/2+X,3/2-Y,1/2-Z; 3-1/2+X,+Y,1/2-Z; 41-X,1-Y,-Z; 51/2+X,3/2-Y,1/2-Z
+
+ 
+
+Table 6 Torsion Angles for mo_WL03_040E_4_298K_0m.
+A	B	C	D	Angle/˚	 	A	B	C	D	Angle/˚
+O1	C1	C2	C21	19.6(11)	 	O2	C1	O1	In1	19.0(10)
+O1	C1	O2	In12	-17.0(9)	 	O2	C1	C2	C21	-160.0(8)
+C2	C1	O1	In1	-160.5(4)	 	C5	N1	C3	O4	-3(3)
+C2	C1	O2	In12	162.5(4)	 	C7	N1	C3	O4	-179.2(19)
+11-X,1-Y,-Z; 21/2+X,3/2-Y,1/2-Z
+
+ 
+
+Table 7 Hydrogen Atom Coordinates (Å×104) and Isotropic Displacement Parameters (Å2×103) for mo_WL03_040E_4_298K_0m.
+Atom	x	y	z	U(eq)
+H2	6781.88	4570.21	75.97	56
+H3A	5970(20)	7500	3796(15)	40(20)
+H3	5187.79	3932.66	4382.22	122
+H5A	6706.67	899.77	2995.46	198
+H5B	4638.2	919.83	3293.97	198
+H5C	6156.56	731.87	4076.85	198
+H7A	7998.86	2637.87	2695.25	235
+H7B	7918.7	3756.57	3428.56	235
+H7C	6523.05	3696.87	2574.13	235
+ 
+
+Table 8 Atomic Occupancy for mo_WL03_040E_4_298K_0m.
+Atom	Occupancy	 	Atom	Occupancy	 	Atom	Occupancy
+C3	0.5	 	H3	0.5	 	C5	0.5
+H5A	0.5	 	H5B	0.5	 	H5C	0.5
+C7	0.5	 	H7A	0.5	 	H7B	0.5
+H7C	0.5	 	 	 	 	 
+Experimental
+
+Single crystals of C7H10InNO6 [mo_WL03_040E_4_298K_0m] were []. A suitable crystal was selected and [] on a Photon diffractometer. The crystal was kept at 298 K during data collection. Using Olex2 [1], the structure was solved with the Unknown [2] structure solution program using Unknown and refined with the Unknown [3] refinement package using Unknown minimisation.
+
+Dolomanov, O.V., Bourhis, L.J., Gildea, R.J, Howard, J.A.K. & Puschmann, H. (2009), J. Appl. Cryst. 42, 339-341.
+Crystal structure determination of [mo_WL03_040E_4_298K_0m]
+
+Crystal Data for C7H10InNO6 (M =318.98 g/mol): orthorhombic, space group Pnma (no. 62), a = 7.307(2) Å, b = 10.626(3) Å, c = 13.915(5) Å, V = 1080.4(6) Å3, Z = 4, T = 298 K, μ(MoKα) = 2.196 mm-1, Dcalc = 1.961 g/cm3, 5946 reflections measured (4.824° ≤ 2Θ ≤ 52.89°), 1165 unique (Rint = 0.0511, Rsigma = 0.0420) which were used in all calculations. The final R1 was 0.0362 (I > 2σ(I)) and wR2 was 0.0876 (all data).
+
+
+Refinement model description
+
+Number of restraints - 74, number of constraints - unknown.
+
+Details:
+
+1. Restrained distances
+ O3-H3A
+ 0.84 with sigma of 0.02
+ In1_$1-H3A ≈ H3A-In1
+ with sigma of 0.02
+2. Uiso/Uaniso restraints and constraints
+O4 ≈ N1 ≈ C3 ≈ C7 ≈ C5 ≈ H3 ≈ H7A ≈ H7B ≈ H7C
+≈ H5A ≈ H5B ≈ H5C: within 1.7A with sigma of 0.04 and sigma for
+terminal atoms of 0.08 within 1.7A
+3. Others
+ Fixed Sof: C3(0.5) H3(0.5) C5(0.5) H5A(0.5) H5B(0.5) H5C(0.5) C7(0.5)
+ H7A(0.5) H7B(0.5) H7C(0.5)
+4.a Aromatic/amide H refined with riding coordinates:
+ C2(H2), C3(H3)
+4.b Idealised Me refined as rotating group:
+ C5(H5A,H5B,H5C), C7(H7A,H7B,H7C)
+This report has been created with Olex2, compiled on 2024.02.16 svn.r378c4104 for OlexSys. Please let us know if there are any errors or if you would like to have additional features.
