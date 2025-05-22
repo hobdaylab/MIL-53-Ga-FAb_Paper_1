@@ -1,0 +1,157 @@
+&EXT_RESTART
+  RESTART_FILE_NAME cell_sp_empty-1.restart
+  RESTART_DEFAULT .TRUE.
+  RESTART_AVERAGES
+  RESTART_CELL
+  RESTART_POS
+&END EXT_RESTART
+
+&GLOBAL
+  PROJECT cell_sp_empty
+  RUN_TYPE CELL_OPT
+  PRINT_LEVEL LOW
+&END GLOBAL
+&FORCE_EVAL
+  METHOD QS
+  STRESS_TENSOR ANALYTICAL
+  &SUBSYS
+    &CELL
+      ABC 7.2905 11.1622 13.5287
+      ALPHA_BETA_GAMMA 90.0 90.0 90.0
+    &END CELL
+   
+    &TOPOLOGY
+      COORD_FILE_FORMAT XYZ
+      COORD_FILE_NAME ga.xyz
+    &END TOPOLOGY
+
+    &KIND Ga
+      ELEMENT   Ga
+      BASIS_SET DZVP-MOLOPT-SR-GTH-q13
+      POTENTIAL GTH-PBE-q13
+    &END KIND
+
+    &KIND C
+      ELEMENT C
+      BASIS_SET DZVP-MOLOPT-GTH
+      POTENTIAL GTH-PBE-q4
+    &END KIND
+
+    &KIND H
+      ELEMENT H
+      BASIS_SET DZVP-MOLOPT-GTH
+      POTENTIAL GTH-PBE-q1
+    &END KIND
+
+    &KIND O
+      ELEMENT O
+      BASIS_SET DZVP-MOLOPT-GTH
+      POTENTIAL GTH-PBE-q6
+    &END KIND
+
+  &END SUBSYS
+
+  &DFT
+    BASIS_SET_FILE_NAME  /exports/csce/eddie/chem/groups/Hobday/Cecilia/files_cirrus/BASIS_MOLOPT
+    POTENTIAL_FILE_NAME  /exports/csce/eddie/chem/groups/Hobday/Cecilia/files_cirrus/POTENTIALS
+#    BASIS_SET_FILE_NAME /work/e89/e89/chong/ga_fum/files_cp2k/BASIS_MOLOPT
+#    POTENTIAL_FILE_NAME /work/e89/e89/chong/ga_fum/files_cp2k/POTENTIALS
+    WFN_RESTART_FILE_NAME cell_sp_empty-RESTART.wfn  
+    &QS
+      EPS_DEFAULT 1.0E-7
+    &END QS
+    &MGRID
+      CUTOFF 900
+      NGRIDS 4
+      REL_CUTOFF 70
+    &END MGRID
+    &SCF
+#      SCF_GUESS ATOMIC
+      SCF_GUESS RESTART
+      EPS_SCF 1.0E-05
+      MAX_SCF 400
+      &DIAGONALIZATION T
+        ALGORITHM STANDARD
+      &END DIAGONALIZATION
+      &MIXING T
+        ALPHA 0.5
+        METHOD PULAY_MIXING
+        NPULAY 5
+      &END MIXING
+      &PRINT
+        &RESTART ON
+        &END RESTART
+      &END PRINT
+    &END SCF
+    &XC
+      &XC_FUNCTIONAL PBE
+      &END XC_FUNCTIONAL
+         &vdW_POTENTIAL
+        DISPERSION_FUNCTIONAL PAIR_POTENTIAL ! dispersion corrections "D3" as proposed by Grimme\cite{10.1002
+        &PAIR_POTENTIAL
+        TYPE DFTD3
+        LONG_RANGE_CORRECTION .TRUE.
+        PARAMETER_FILE_NAME /exports/csce/eddie/chem/groups/Hobday/Cecilia/files_cirrus/dftd3.dat
+#        PARAMETER_FILE_NAME /work/e89/e89/chong/ga_fum/files_cp2k/dftd3.dat
+        R_CUTOFF [angstrom] 10.0
+        REFERENCE_FUNCTIONAL PBE
+        &END PAIR_POTENTIAL
+        &END vdW_POTENTIAL
+    &END XC
+  &END DFT
+&END FORCE_EVAL
+&MOTION
+  &PRINT
+    &TRAJECTORY
+      &EACH
+        MD 1
+      &END EACH
+      FORMAT DCD
+    &END TRAJECTORY
+   
+    &VELOCITIES ON
+    &END VELOCITIES
+    &RESTART
+      &EACH
+        MD 1
+       &END EACH
+    &END RESTART
+
+    &RESTART_HISTORY OFF
+    &END RESTART_HISTORY
+
+    &CELL ON
+    &END CELL
+   
+    &STRESS HIGH
+      FILENAME sys_stress.dat
+    &END STRESS
+
+    &END PRINT
+
+  &GEO_OPT
+    TYPE MINIMIZATION
+    MAX_DR    1.0E-03
+    MAX_FORCE 1.0E-03
+    RMS_DR    1.0E-03
+    RMS_FORCE 1.0E-03
+    MAX_ITER 400
+    OPTIMIZER CG
+    &CG
+      MAX_STEEP_STEPS  0
+      RESTART_LIMIT 9.0E-01
+    &END CG
+  &END GEO_OPT
+
+  &CELL_OPT
+    KEEP_SYMMETRY
+    TYPE DIRECT_CELL_OPT
+   &END CELL_OPT 
+
+#  &CONSTRAINT
+#    &FIXED_ATOMS
+#      COMPONENTS_TO_FIX XYZ
+#      LIST 1
+#    &END FIXED_ATOMS
+#  &END CONSTRAINT
+&END MOTION
