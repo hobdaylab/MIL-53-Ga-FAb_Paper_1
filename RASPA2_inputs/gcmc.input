@@ -17,7 +17,7 @@ ChargeEquilibrationEwald        yes
 SymmetrizeFrameworkCharges      no
 
 Framework 			0
-FrameworkName 			MIL-53-Ga-in-Al
+FrameworkName 			MIL-53-Ga
 FlexibleFramework 		no
 UnitCells 			4 3 3  
 HeliumVoidFraction 		0.541
