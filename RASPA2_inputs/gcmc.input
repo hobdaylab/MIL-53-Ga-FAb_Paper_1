@@ -1,0 +1,88 @@
+SimulationType 			MonteCarlo
+NumberOfCycles 			5000000
+NumberOfInitializationCycles 	250000
+PrintEvery 			1000
+
+ContinueAfterCrash 		yes
+#RestartFile 			yes
+WriteBinaryRestartFileEvery 	2000
+PrintPropertiesEvery 		5000
+
+Forcefield 			4P_tip5p
+RemoveAtomNumberCodeFromLabel 	yes
+
+ChargeFromChargeEquilibration   yes
+ChargeEquilibrationPeriodic     yes
+ChargeEquilibrationEwald        yes
+SymmetrizeFrameworkCharges      no
+
+Framework 			0
+FrameworkName 			MIL-53-Ga-in-Al
+FlexibleFramework 		no
+UnitCells 			4 3 3  
+HeliumVoidFraction 		0.541
+ComputeRDF			yes
+
+ExternalTemperature 		298.0
+ExternalPressure 	 	LT_press
+Movies 				yes 
+WriteMoviesEvery 		100
+
+
+#Box 1
+#BoxLength    20 20 20
+#CutOffCoulomb 50
+#ExternalTemperature 298
+#External Pressure 1e4 2e5 3e6 4e7
+
+ComputeNumberOfMoleculesHistogram 		yes
+WriteNumberOfMoleculesHistogramEvery 		1000
+NumberOfMoleculesHistogramSize 			100
+NumberOfMoleculesRange 				80
+
+ComputeEnergyHistogram 		yes
+WriteEnergyHistogramEvery 	1000
+EnergyHistogramSize 		400
+EnergyHistogramLowerLimit 	-200000
+EnergyHistogramUpperLimit 	100000
+
+ComputeDensityProfile3DVTKGrid yes
+WriteDensityProfile3DVTKGridEvery 100
+DensityProfile3DVTKGridPoints 150 150 150
+AverageDensityOverUnitCellsVTK yes
+DensityAveragingTypeVTK FullBox
+
+ComputeDensityHistogram yes
+
+
+#Component 0 MoleculeName 		water
+#            MoleculeDefinition          TraPPE
+#            TranslationProbability 	0.5
+#            ReinsertionProbability 	0.5
+#            SwapProbability 		1.0
+#            CreateNumberOfMolecules 	0
+
+
+Component 0 MoleculeName 		water
+            MoleculeDefinition 		TIP5P
+            MolFraction                 0.25
+            TranslationProbability      0.5
+#            RegrowProbability           0.5
+#            IdentityChangeProbability   1.0
+#                NumberOfIdentityChanges 2
+#                IdentityChangesList     0 1
+            SwapProbability             1.0
+            CreateNumberOfMolecules     0
+#
+
+#Component 0 MoleculeName CO2
+#            MoleculeDefinition TraPPE
+#            MolFraction                  0.25
+#            TranslationProbability       0.5
+#            RegrowProbability            0.5
+#            IdentityChangeProbability    1.0
+#                NumberOfIdentityChanges  2
+#                IdentityChangesList      0 1
+#            SwapProbability              1.0
+#            CreateNumberOfMolecules      0
+#
